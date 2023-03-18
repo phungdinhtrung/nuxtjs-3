@@ -1,0 +1,6 @@
+### GET method
+GET http://localhost/api/helloWorld
+
+### POST method
+POST http://localhost/api/helloWorld
+
