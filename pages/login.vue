@@ -1,7 +1,8 @@
 <script lang="ts" setup>
   definePageMeta({
-    layout: 'plain'
+    layout: 'default',   //layout-login
   })
+  
 </script>
 
 <template>
