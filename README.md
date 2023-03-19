@@ -40,3 +40,7 @@ npm run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+## Structure folders
+ref: https://nuxt.com/docs/guide/directory-structure/nuxt
+

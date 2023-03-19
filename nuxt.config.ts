@@ -1,6 +1,10 @@
+import { fileURLToPath } from 'node:url' 
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 
+    // RUNTIME CONFIG
+    // ================================================
     runtimeConfig: {
         // Private keys are only available on the server
         apiSecret: '123',
@@ -12,6 +16,8 @@ export default defineNuxtConfig({
         }
     },
 
+    // COMPONENT CONFIG
+    // ================================================
     components: [ // Auto import component by path: components/movie/search.vue --> MovieSearch
         {
           path: '~/components',
@@ -19,16 +25,21 @@ export default defineNuxtConfig({
         },
     ],
 
-    // Auto import js, ts, vue
-    imports: {
+    
+    // AUTO IMPORT CONFIG
+    // ================================================
+    imports: { // Auto import js, ts, vue
         dirs: [
             'composables/**',
             'stores/**'
         ]
     },
 
-    // Pinia
-    modules: [ '@pinia/nuxt' ],
+    // MODULE CONFIG
+    // ================================================
+    modules: [ 
+        '@pinia/nuxt'
+    ],
     pinia: {
         autoImports: [ 
             'defineStore', 
@@ -36,6 +47,23 @@ export default defineNuxtConfig({
         ],
     },
 
+    // ALIAS
+    // ================================================
+    alias: {
+        "~~": "./",
+        "@@": "./",
+        "~": "./",
+        "@": "./",
+        "assets": "@/assets",
+        "public": "@/public",
+        'images': fileURLToPath(new URL('@/assets/images', import.meta.url)),
+        'style': fileURLToPath(new URL('@/assets/style', import.meta.url)),
+        'data': fileURLToPath(new URL('@/assets/other/data', import.meta.url))
+    },
+
+
+    // UI CONFIG
+    // ================================================
     // Primevue
     css: [
         "primevue/resources/themes/lara-light-blue/theme.css",
@@ -46,4 +74,6 @@ export default defineNuxtConfig({
 	build: {
 		transpile: ["primevue"]
 	}
+
+
 })
